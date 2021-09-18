@@ -67,3 +67,5 @@ VALUES(10, '2021-09-19 04:11:53.885', '2021-09-19 04:11:53.885', 'Update sub tas
 POST ->      localhost:8787/registration-user      CREATE USER
 PUT ->       localhost:8787/registration-user/1    UPDARE USER
 DELETE ->    localhost:8787/registration-user/1    DELETE USER
+GET ->       localhost:8787/registration-user      GET LIST USER
+GET ->       localhost:8787/registration-user/1    GET USER BY ID
