@@ -10,8 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @Slf4j
@@ -22,6 +22,16 @@ public class UserService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    public List<User> getUsers(){
+        return userRepository.findAll();
+    }
+
+    public User getUsersById(Long id){
+        return Optional.ofNullable(userRepository.findById(id)
+                        .orElseThrow(() -> new ResourceNotFoundException
+                                ("Cannot Find Role ID " + id))).get();
+    }
 
     public UserRegistrationDto saveUser(UserRegistrationDto userRegistrationDto){
 

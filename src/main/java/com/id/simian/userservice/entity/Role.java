@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Data
 @NoArgsConstructor
@@ -19,6 +19,11 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "role")
+    private List<AuthenticationAcl> authenticationAcls = new ArrayList<>();
 
     @Column(name = "created_on")
     @Temporal(TemporalType.TIMESTAMP)

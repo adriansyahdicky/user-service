@@ -3,7 +3,7 @@ package com.id.simian.userservice.entity;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.LastModifiedDate;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "authentication_user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@ToString
 public class User {
 
     @Id

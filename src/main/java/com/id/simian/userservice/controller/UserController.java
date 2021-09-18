@@ -16,6 +16,19 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping(value = "/registration-user")
+    public ResponseEntity<Object> getUserRegistration()  {
+        return ResponseEntity.ok( userService.getUsers());
+
+    }
+
+    @GetMapping(value = "/registration-user/{id}")
+    public ResponseEntity<Object> getUserRegistrationById(@PathVariable("id") Long id)  {
+        return ResponseEntity.ok( userService.getUsersById(id));
+
+    }
+
+
     @PostMapping(value = "/registration-user")
     public ResponseEntity<Object> registration(@RequestBody @Valid UserRegistrationDto userRegistrationDTO,
                                            BindingResult bindingResult)  {
